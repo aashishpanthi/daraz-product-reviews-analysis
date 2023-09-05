@@ -3,9 +3,11 @@ import { parse, stringify } from "csv-string";
 
 const saveData = async (data) => {
   // Define the CSV file path
-  const filePath = "data.csv";
+  const csvFilePath = "data.csv";
+  // Define the JSON file path
+  const jsonFilePath = "data.json";
 
-  // Define custom header names
+  // Define custom header names for CSV
   const customHeader = [
     "Name",
     "URL",
@@ -46,24 +48,48 @@ const saveData = async (data) => {
     formattedReviews,
   ];
 
+  // Prepare the data for JSON
+  const jsonData = {
+    name,
+    url,
+    price,
+    image,
+    brand,
+    seller,
+    ratings,
+    "Total Reviews": totalRatings,
+    reviews,
+  };
+
   console.log("Saving data...");
   console.log(csvData);
 
   try {
-    if (fs.existsSync(filePath)) {
-      // If the file exists, read its content and append the new data
-      const fileContent = fs.readFileSync(filePath, "utf-8");
+    if (fs.existsSync(csvFilePath)) {
+      // If the CSV file exists, read its content and append the new data
+      const fileContent = fs.readFileSync(csvFilePath, "utf-8");
       const existingData = parse(fileContent);
 
       // Append the new data to the existing data
       existingData.push(csvData);
 
-      //   Write the updated data back to the file with the custom header
-      fs.writeFileSync(filePath, stringify(existingData));
+      // Write the updated data back to the CSV file with the custom header
+      fs.writeFileSync(csvFilePath, stringify(existingData));
     } else {
-      // If the file doesn't exist, create a new file with the custom header and the new data
+      // If the CSV file doesn't exist, create a new file with the custom header and the new data
       const header = customHeader.join(",") + "\n";
-      fs.writeFileSync(filePath, header + stringify([csvData]));
+      fs.writeFileSync(csvFilePath, header + stringify([csvData]));
+    }
+
+    // Append the data to the JSON file
+    if (fs.existsSync(jsonFilePath)) {
+      const existingJsonData = JSON.parse(
+        fs.readFileSync(jsonFilePath, "utf-8")
+      );
+      existingJsonData.push(jsonData);
+      fs.writeFileSync(jsonFilePath, JSON.stringify(existingJsonData));
+    } else {
+      fs.writeFileSync(jsonFilePath, JSON.stringify([jsonData]));
     }
 
     console.log("Data saved successfully");
