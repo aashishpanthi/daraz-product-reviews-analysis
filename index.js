@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 import getBasicDetails from "./getBasicDetails.js";
 import getBrandName from "./getBrandName.js";
+import getSellerDetails from "./getSellerDetails.js";
 
 const fun = async () => {
   // 1. Create a new browser instance
@@ -34,6 +35,10 @@ const fun = async () => {
   // brand name
   const brandName = await getBrandName(page);
   data.brandName = brandName;
+
+  // get seller details
+  const seller = await getSellerDetails(page);
+  data.seller = seller;
 
   console.log(data);
   // 4. Close the browser
