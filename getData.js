@@ -4,6 +4,7 @@ import getSellerDetails from "./getSellerDetails.js";
 import getRatings from "./getRatings.js";
 import getReviews from "./getReviews.js";
 import saveData from "./saveData.js";
+import getCategory from "./getCategory.js";
 
 const getData = async (url, page) => {
   // navinagte to each product's page
@@ -35,8 +36,12 @@ const getData = async (url, page) => {
   // get ratings
   const { ratings, totalRatings } = await getRatings(page);
 
+  // get category
+  const category = await getCategory(page);
+
   const data = {
     name,
+    category,
     url,
     price,
     image,

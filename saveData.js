@@ -10,6 +10,7 @@ const saveData = async (data) => {
   // Define custom header names for CSV
   const customHeader = [
     "Name",
+    "Category",
     "URL",
     "Price",
     "Image",
@@ -23,6 +24,7 @@ const saveData = async (data) => {
   // Extract the relevant properties from the data object
   const {
     name,
+    category,
     url,
     price,
     image,
@@ -38,6 +40,7 @@ const saveData = async (data) => {
   const formattedReviews = reviews.join("\n");
   const csvData = [
     name,
+    category,
     url,
     price,
     image,
@@ -51,6 +54,7 @@ const saveData = async (data) => {
   // Prepare the data for JSON
   const jsonData = {
     name,
+    category,
     url,
     price,
     image,
@@ -60,9 +64,6 @@ const saveData = async (data) => {
     "Total Reviews": totalRatings,
     reviews,
   };
-
-  console.log("Saving data...");
-  console.log(csvData);
 
   try {
     if (fs.existsSync(csvFilePath)) {
