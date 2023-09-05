@@ -3,6 +3,7 @@ import getBasicDetails from "./getBasicDetails.js";
 import getBrandName from "./getBrandName.js";
 import getSellerDetails from "./getSellerDetails.js";
 import getRatings from "./getRatings.js";
+import getReviews from "./getReviews.js";
 
 const fun = async () => {
   // 1. Create a new browser instance
@@ -41,9 +42,14 @@ const fun = async () => {
   const seller = await getSellerDetails(page);
   data.seller = seller;
 
+  // get reviews
+  const reviews = await getReviews(page);
+  data.reviews = reviews;
+
   // get ratings
   const ratings = await getRatings(page);
-  data.ratings = ratings;
+  data.totalRatings = ratings.totalRatings;
+  data.ratings = ratings.ratings;
 
   console.log(data);
   // 4. Close the browser
