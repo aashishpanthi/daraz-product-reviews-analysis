@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "csv-string": "^4.1.1",
+    "csv-writer": "^1.6.0",
     "puppeteer": "^21.1.1"
   }
 }
