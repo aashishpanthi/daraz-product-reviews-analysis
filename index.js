@@ -1,7 +1,6 @@
 import puppeteer from "puppeteer";
 import getData from "./getData.js";
 import data from "./data.json" assert { type: "json" };
-import fs from "fs";
 
 const fun = async () => {
   // 1. Create a new browser instance
@@ -17,7 +16,7 @@ const fun = async () => {
   const page = await browser.newPage();
 
   let url =
-    "https://www.daraz.com.np/products/muna-madan-by-laxmi-pdr-devkota-i100279709-s1020550164.html";
+    "https://www.daraz.com.np/products/sony-playstation-5-ps5-disc-edition-i105950955-s1027888051.html";
 
   const scrapedURLs = new Set(data?.map((item) => item.url));
 
