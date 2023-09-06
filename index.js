@@ -16,7 +16,7 @@ const fun = async () => {
   const page = await browser.newPage();
 
   let url =
-    "https://www.daraz.com.np/products/sony-playstation-5-ps5-disc-edition-i105950955-s1027888051.html";
+    "https://www.daraz.com.np/products/pink-color-baby-wrapperreceive-blanket-i125110924-s1033974106.html";
 
   const scrapedURLs = new Set(data?.map((item) => item.url));
 
