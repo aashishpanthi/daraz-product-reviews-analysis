@@ -17,7 +17,7 @@ const fun = async () => {
   const page = await browser.newPage();
 
   let url =
-    "https://www.daraz.com.np/products/12-inch-multifunctional-lcd-writing-tablet-i116876332-s1031987315.html";
+    "https://www.daraz.com.np/products/pets-poop-scooper-cats-dogs-small-and-handy-by-crown-aquatics-i104012118-s1024772533.html";
 
   const scrapedURLs = new Set(data?.map((item) => item.url));
 
