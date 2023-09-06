@@ -12,7 +12,11 @@ const getRatings = async (page) => {
 
       return {
         totalRatings: noOfRatings
-          ? `${noOfRatings}`.replace(" Ratings", "")
+          ? `${noOfRatings}`.includes("Ratings")
+            ? `${noOfRatings}`.replace(" Ratings", "").includes("No")
+              ? 0
+              : `${noOfRatings}`.replace(" Ratings", "")
+            : 0
           : 0,
         ratings,
       };

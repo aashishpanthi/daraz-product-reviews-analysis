@@ -10,10 +10,10 @@ const getReviews = async (page) => {
         // scroll a window height every time in .3 seconds intervals
         window.scrollBy(0, window.innerHeight);
       });
-      await page.waitForTimeout(110); // Wait for some time after scrolling
+      await page.waitForTimeout(500); // Wait for some time after scrolling
     }
 
-    await page.waitForTimeout(300); // Wait for some time after scrolling
+    await page.waitForTimeout(1000); // Wait for some time after scrolling
 
     // Now that the content is loaded, select and extract the reviews
     const reviewsData = await page.evaluate((reviewsLocation) => {
