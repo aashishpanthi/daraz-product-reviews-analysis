@@ -7,8 +7,8 @@ const fun = async () => {
   const browser = await puppeteer.launch({
     headless: false,
     defaultViewport: {
-      width: 1500,
-      height: 900,
+      width: 900,
+      height: 450,
     },
   });
 
@@ -16,7 +16,7 @@ const fun = async () => {
   const page = await browser.newPage();
 
   let url =
-    "https://www.daraz.com.np/products/men-brogue-elegant-leather-formal-shoes-party-office-shoes-fashion-shoes-for-men-mens-footwear-i104996126-s1031029075.html";
+    "https://www.daraz.com.np/products/canon-pixma-g2020-3-in-1-multi-function-ink-tank-colour-printer-i10464-s1027502630.html";
 
   const scrapedURLs = new Set(data?.map((item) => item.url));
 
