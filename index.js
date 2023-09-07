@@ -16,7 +16,7 @@ const fun = async () => {
   const page = await browser.newPage();
 
   let url =
-    "https://www.daraz.com.np/products/naruto-headband-leaf-village-metal-plated-collectibles-and-cosplay-accessories-anime-i105028831-s1026632254.html";
+    "https://www.daraz.com.np/products/good-night-turbo-powerlite-combi-pack-45ml-i127820364-s1034782977.html";
 
   const scrapedURLs = new Set(data?.map((item) => item.url));
 
