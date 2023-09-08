@@ -16,7 +16,7 @@ const fun = async () => {
   const page = await browser.newPage();
 
   let url =
-    "https://www.daraz.com.np/products/canon-pixma-g2020-3-in-1-multi-function-ink-tank-colour-printer-i10464-s1027502630.html";
+    "https://www.daraz.com.np/products/super-absorbent-quick-dry-bathroom-floor-mat-i118885357-s1032561165.html";
 
   const scrapedURLs = new Set(data?.map((item) => item.url));
 
