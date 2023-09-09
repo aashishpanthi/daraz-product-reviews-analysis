@@ -16,9 +16,11 @@ const fun = async () => {
   const page = await browser.newPage();
 
   let url =
-    "https://www.daraz.com.np/products/super-absorbent-quick-dry-bathroom-floor-mat-i118885357-s1032561165.html";
+    "https://www.daraz.com.np/products/plain-cotton-fabric-window-door-curtain-1pcs-4x7ft-i126654189-s1034331183.html";
 
   const scrapedURLs = new Set(data?.map((item) => item.url));
+
+  console.log(data.length);
 
   do {
     await getData(url, page);
