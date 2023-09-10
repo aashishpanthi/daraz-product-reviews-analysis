@@ -17,7 +17,7 @@ const fun = async () => {
   const page = await browser.newPage();
 
   let url =
-    "https://www.daraz.com.np/products/nima-nm-8300-mini-portable-electric-mixer-grinder-i125798129-s1034942978.html";
+    "https://www.daraz.com.np/products/baby-try-cycle-with-push-handle-i116220277-s1031781847.html";
 
   const scrapedURLs = new Set(data?.map((item) => item.url));
 
