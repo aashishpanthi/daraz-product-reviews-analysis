@@ -16,7 +16,7 @@ const fun = async () => {
   const page = await browser.newPage();
 
   let url =
-    "https://www.daraz.com.np/products/plain-cotton-fabric-window-door-curtain-1pcs-4x7ft-i126654189-s1034331183.html";
+    "https://www.daraz.com.np/products/stainless-steel-folding-knife-exquisite-design-for-household-and-outdoor-use-i110375527-s1029920525.html";
 
   const scrapedURLs = new Set(data?.map((item) => item.url));
 
