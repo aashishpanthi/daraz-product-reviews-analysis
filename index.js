@@ -8,15 +8,16 @@ const fun = async () => {
     headless: false,
     defaultViewport: {
       width: 900,
-      height: 450,
+      height: 600,
     },
+    args: ["--no-sandbox"],
   });
 
   // 2. Create a new page instance
   const page = await browser.newPage();
 
   let url =
-    "https://www.daraz.com.np/products/corneto-wash-basin-only-basin-with-350387144mm-size-i104850577-s1026344672.html";
+    "https://www.daraz.com.np/products/nima-nm-8300-mini-portable-electric-mixer-grinder-i125798129-s1034942978.html";
 
   const scrapedURLs = new Set(data?.map((item) => item.url));
 
