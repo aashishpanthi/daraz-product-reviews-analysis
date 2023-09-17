@@ -1,6 +1,8 @@
 import puppeteer from "puppeteer";
 import getData from "./getData.js";
 import data from "./data.json" assert { type: "json" };
+import Sentiment from "sentiment";
+import fs from "fs";
 
 const fun = async () => {
   // 1. Create a new browser instance
@@ -65,38 +67,57 @@ const fun = async () => {
   await browser.close();
 };
 
-// (async () => {
-//   let links = [];
+//fun();
 
-//   for (let i = 1; i <= 100; i++) {
-//     const url = "https://www.daraz.com.np/computing/?ajax=false&page=" + i;
+const sentiment = new Sentiment();
 
-//     console.log(url);
+// analyze the sentiment
+const rawData = data;
 
-//     // do a fetch request to get the api data
-//     const response = await fetch(url);
+const analyzedData = rawData.map((item) => {
+  // loop over each review and collectively analyze the sentiment
+  const reviews = item.reviews.map((review) => {
+    const { score, comparative, positive, negative } =
+      sentiment.analyze(review);
+    return { score, comparative, positive, negative };
+  });
 
-//     // convert the response to json
-//     const data = await response.json();
+  // get the average score of all the reviews
+  const averageScore =
+    reviews.reduce((acc, review) => acc + review.score, 0) / reviews.length;
 
-//     console.log(data);
+  // get the average comparative of all the reviews
+  const averageComparative =
+    reviews.reduce((acc, review) => acc + review.comparative, 0) /
+    reviews.length;
 
-//     // get the product list from the json data
-//     const productList = data.mods.listItems;
+  // get all the positive words
+  const positiveWords = reviews.reduce(
+    (acc, review) => [...acc, ...review.positive],
+    []
+  );
 
-//     // get the product urls from the product list
-//     const productUrls = productList.map(
-//       (product) => product.link.split("?")[0]
-//     );
+  // get all the negative words
+  const negativeWords = reviews.reduce(
+    (acc, review) => [...acc, ...review.negative],
+    []
+  );
 
-//     // add the product urls to the links array
-//     links = [...links, ...productUrls];
-//   }
-//   // save the product urls to a json file
-//   fs.writeFileSync("links.json", JSON.stringify(links, null, 2), "utf-8");
+  return {
+    ...item,
+    averageScore,
+    averageComparative,
+    positiveWords,
+    negativeWords,
+  };
+});
 
-//   console.log(links.length);
-//   console.log("Done");
-// })();
+const flattenedData = analyzedData.flat();
 
-fun();
+fs.writeFileSync(
+  "./reviews.json",
+  JSON.stringify(flattenedData, null, 2),
+  "utf-8"
+);
+
+console.log("done");
