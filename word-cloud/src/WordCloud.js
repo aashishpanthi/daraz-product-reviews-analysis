@@ -11,6 +11,8 @@ function WordCloud({ reviews }) {
     })
     .flat();
 
+  console.log(words);
+
   // count the number of times each word appears
   const wordCounts = words.reduce((acc, word) => {
     if (acc[word]) {
@@ -24,7 +26,8 @@ function WordCloud({ reviews }) {
   // sort the words by count with the most frequent words first and include word count
   const sortedWords = Object.entries(wordCounts)
     .sort((a, b) => b[1] - a[1])
-    .map(([word, count]) => ({ text: word, value: count }));
+    .map(([word, count]) => ({ text: word, value: count }))
+    .slice(0, 150);
 
   console.log(sortedWords);
 
@@ -41,7 +44,31 @@ function WordCloud({ reviews }) {
         border: "1px solid #ccc",
       }}
     >
-      <ReactWordcloud size={[800, 600]} words={sortedWords} />
+      <ReactWordcloud
+        size={[800, 600]}
+        words={sortedWords}
+        options={{
+          rotations: 5,
+          rotationAngles: [-75, 75],
+          fontSizes: [12, 80],
+          padding: 1,
+          spiral: "rectangular",
+          enableTooltip: true,
+          deterministic: true,
+
+          colors: [
+            "#1f77b4",
+            "#ff7f0e",
+            "#2ca02c",
+            "#d62728",
+            "#9467bd",
+            "#8c564b",
+          ],
+
+          transitionDuration: 1000,
+          enableOptimizations: true,
+        }}
+      />
     </div>
   );
 }

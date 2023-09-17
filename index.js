@@ -121,3 +121,11 @@ fs.writeFileSync(
 );
 
 console.log("done");
+
+// const words = reviews
+//   .map(({ positiveWords, negativeWords }) => {
+//     return [...positiveWords, ...negativeWords];
+//   })
+//   .flat();
+
+// fs.writeFileSync("./words.json", JSON.stringify(words, null, 2), "utf-8");
