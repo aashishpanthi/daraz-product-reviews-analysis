@@ -17,8 +17,6 @@ function WordCloud({ reviews, word = "all" }) {
     })
     .flat();
 
-  console.log(words);
-
   // count the number of times each word appears
   const wordCounts = words.reduce((acc, word) => {
     if (acc[word]) {
@@ -35,8 +33,6 @@ function WordCloud({ reviews, word = "all" }) {
     .map(([word, count]) => ({ text: word, value: count }))
     .slice(0, 150);
 
-  console.log(sortedWords);
-
   return (
     <>
       <h1 style={{ textAlign: "center" }}>Word Cloud</h1>
@@ -47,10 +43,11 @@ function WordCloud({ reviews, word = "all" }) {
           width: 800,
           backgroundColor: "white",
           borderRadius: 10,
-          padding: 10,
+          padding: 5,
           marginLeft: "auto",
           marginRight: "auto",
           border: "1px solid #ccc",
+          marginBottom: 20,
         }}
       >
         <ReactWordcloud

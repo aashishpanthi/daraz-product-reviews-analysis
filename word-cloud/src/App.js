@@ -1,4 +1,5 @@
 import "./App.css";
+import Ratings from "./Ratings";
 import WordCloudChart from "./WordCloud";
 import reviews from "./reviews.json";
 import { Route, Routes } from "react-router-dom";
@@ -19,6 +20,8 @@ function App() {
           path="/negative"
           element={<WordCloudChart reviews={reviews} word="negative" />}
         />
+
+        <Route path="/ratings" Component={Ratings} />
       </Routes>
     </div>
   );
