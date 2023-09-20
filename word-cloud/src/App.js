@@ -1,4 +1,5 @@
 import "./App.css";
+import Home from "./Home";
 import Ratings from "./Ratings";
 import RatingsAccCategory from "./RatingsAccCategory";
 import WordCloudChart from "./WordCloud";
@@ -9,16 +10,17 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path="/" Component={Home} />
         <Route
-          path="/"
+          path="/word-cloud"
           element={<WordCloudChart reviews={reviews} word="all" />}
         />
         <Route
-          path="/positive"
+          path="/word-cloud/positive"
           element={<WordCloudChart reviews={reviews} word="positive" />}
         />
         <Route
-          path="/negative"
+          path="/word-cloud/negative"
           element={<WordCloudChart reviews={reviews} word="negative" />}
         />
 
