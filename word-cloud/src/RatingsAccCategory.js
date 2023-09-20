@@ -62,7 +62,7 @@ function RatingsAccCategory() {
         labels: ["1-2", "2-3", "3-4", "4-5", "5"],
         datasets: [
           {
-            label: `Ratings for ${category}`,
+            label: `Ratings for ${category} (%)`,
             data: ratingsPercentage,
             backgroundColor: ["red", "orange", "yellow", "green", "blue"],
             borderColor: [
