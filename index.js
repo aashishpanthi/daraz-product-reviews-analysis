@@ -1,8 +1,9 @@
 import puppeteer from "puppeteer";
 import getData from "./getData.js";
-import data from "./data.json" assert { type: "json" };
+import data from "./convertedData.json" assert { type: "json" };
 import Sentiment from "sentiment";
 import fs from "fs";
+import csv from "csv-parser";
 
 const fun = async () => {
   // 1. Create a new browser instance
@@ -67,10 +68,9 @@ const fun = async () => {
   await browser.close();
 };
 
-fun();
+// fun();
 
 /* Sentiment Analysis
-
 
 const sentiment = new Sentiment();
 
@@ -122,6 +122,7 @@ fs.writeFileSync(
   JSON.stringify(flattenedData, null, 2),
   "utf-8"
 );
+
 */
 
 /*get all the words
@@ -132,4 +133,41 @@ fs.writeFileSync(
    .flat();
 
  fs.writeFileSync("./words.json", JSON.stringify(words, null, 2), "utf-8");
+*/
+
+/* Convert csv to json  
+const inputFile = "data.csv"; // Replace with the path to your CSV file
+const outputFile = "convertedData.json"; // Replace with the desired output JSON file name
+
+const results = [];
+
+fs.createReadStream(inputFile)
+  .pipe(csv())
+  .on("data", (data) => {
+    // Check if the 'reviews' column has newline characters
+    if (data.Reviews.includes("\n")) {
+      // Split the multiline cell into an array using commas as the delimiter
+      data.Reviews = data.Reviews.split("\n").map((review) => review.trim());
+    } else {
+      // If there are no newline characters, convert it to a single-element array
+      data.Reviews = [data.Reviews];
+    }
+
+    // Convert keys to lowercase
+    const lowerCaseData = {};
+    for (const key in data) {
+      if (Object.hasOwnProperty.call(data, key)) {
+        lowerCaseData[key.toLowerCase()] = data[key];
+      }
+    }
+
+    results.push(lowerCaseData);
+  })
+  .on("end", () => {
+    // Write the parsed data to a JSON file
+    fs.writeFileSync(outputFile, JSON.stringify(results, null, 2));
+    console.log(
+      `CSV file "${inputFile}" has been converted to JSON: "${outputFile}"`
+    );
+  });
 */
