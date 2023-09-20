@@ -38,44 +38,48 @@ function WordCloud({ reviews, word = "all" }) {
   console.log(sortedWords);
 
   return (
-    <div
-      style={{
-        height: 600,
-        width: 800,
-        backgroundColor: "white",
-        borderRadius: 10,
-        padding: 10,
-        marginLeft: "auto",
-        marginRight: "auto",
-        border: "1px solid #ccc",
-      }}
-    >
-      <ReactWordcloud
-        size={[800, 600]}
-        words={sortedWords}
-        options={{
-          rotations: 5,
-          rotationAngles: [-75, 75],
-          fontSizes: [12, 80],
-          padding: 1,
-          spiral: "rectangular",
-          enableTooltip: true,
-          deterministic: true,
-
-          colors: [
-            "#1f77b4",
-            "#ff7f0e",
-            "#2ca02c",
-            "#d62728",
-            "#9467bd",
-            "#8c564b",
-          ],
-
-          transitionDuration: 1000,
-          enableOptimizations: true,
+    <>
+      <h1 style={{ textAlign: "center" }}>Word Cloud</h1>
+      <h3 style={{ textAlign: "center" }}>Word Cloud of {word} words</h3>
+      <div
+        style={{
+          height: 600,
+          width: 800,
+          backgroundColor: "white",
+          borderRadius: 10,
+          padding: 10,
+          marginLeft: "auto",
+          marginRight: "auto",
+          border: "1px solid #ccc",
         }}
-      />
-    </div>
+      >
+        <ReactWordcloud
+          size={[800, 600]}
+          words={sortedWords}
+          options={{
+            rotations: 5,
+            rotationAngles: [-75, 75],
+            fontSizes: [12, 80],
+            padding: 1,
+            spiral: "rectangular",
+            enableTooltip: true,
+            deterministic: true,
+
+            colors: [
+              "#1f77b4",
+              "#ff7f0e",
+              "#2ca02c",
+              "#d62728",
+              "#9467bd",
+              "#8c564b",
+            ],
+
+            transitionDuration: 1000,
+            enableOptimizations: true,
+          }}
+        />
+      </div>
+    </>
   );
 }
 
