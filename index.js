@@ -19,7 +19,7 @@ const fun = async () => {
   const page = await browser.newPage();
 
   let url =
-    "https://www.daraz.com.np/products/barbie-3d-digital-makeover-portable-mirror-i125711718-s1034088088.html";
+    "https://www.daraz.com.np/products/mini-collar-microphone-i127430043-s1034525971.html";
 
   const scrapedURLs = new Set(data?.map((item) => item.url));
 
@@ -67,7 +67,7 @@ const fun = async () => {
   await browser.close();
 };
 
-//fun();
+fun();
 
 /* Sentiment Analysis
 
