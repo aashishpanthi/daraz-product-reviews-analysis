@@ -69,6 +69,9 @@ const fun = async () => {
 
 //fun();
 
+/* Sentiment Analysis
+
+
 const sentiment = new Sentiment();
 
 // analyze the sentiment
@@ -119,13 +122,14 @@ fs.writeFileSync(
   JSON.stringify(flattenedData, null, 2),
   "utf-8"
 );
+*/
 
-console.log("done");
+/*get all the words
+ const words = reviews
+   .map(({ positiveWords, negativeWords }) => {
+     return [...positiveWords, ...negativeWords];
+   })
+   .flat();
 
-// const words = reviews
-//   .map(({ positiveWords, negativeWords }) => {
-//     return [...positiveWords, ...negativeWords];
-//   })
-//   .flat();
-
-// fs.writeFileSync("./words.json", JSON.stringify(words, null, 2), "utf-8");
+ fs.writeFileSync("./words.json", JSON.stringify(words, null, 2), "utf-8");
+*/
