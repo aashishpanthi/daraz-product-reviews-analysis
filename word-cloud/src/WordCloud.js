@@ -3,11 +3,17 @@ import ReactWordcloud from "react-wordcloud";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
-function WordCloud({ reviews }) {
+function WordCloud({ reviews, word = "all" }) {
   // get all the words from the reviews
   const words = reviews
     .map(({ positiveWords, negativeWords }) => {
-      return [...positiveWords, ...negativeWords];
+      if (word === "positive") {
+        return [...positiveWords];
+      } else if (word === "negative") {
+        return [...negativeWords];
+      } else {
+        return [...positiveWords, ...negativeWords];
+      }
     })
     .flat();
 
