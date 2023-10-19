@@ -18,6 +18,9 @@ function Home() {
         <Link to="/overall-sentiment" style={{ margin: 10 }}>
           Overall Sentiment Analysis
         </Link>
+        <Link to="/sentiment-across-categories" style={{ margin: 10 }}>
+          Sentiment Analysis Across Categories
+        </Link>
       </div>
       <h3 style={{ textAlign: "center", marginBottom: 0 }}>Word cloud</h3>
       <div style={{ display: "flex", justifyContent: "center" }}>
