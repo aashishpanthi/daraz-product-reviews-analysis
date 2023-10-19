@@ -3,6 +3,7 @@ import Home from "./Home";
 import Ratings from "./Ratings";
 import RatingsAccCategory from "./RatingsAccCategory";
 import WordCloudChart from "./WordCloud";
+import OverallSentiment from "./OverallSentiment";
 import reviews from "./reviews.json";
 import { Link, Route, Routes } from "react-router-dom";
 
@@ -27,6 +28,8 @@ function App() {
         <Route path="/ratings" Component={Ratings} />
 
         <Route path="/ratings-acc-category" Component={RatingsAccCategory} />
+
+        <Route path="/overall-sentiment" Component={OverallSentiment} />
 
         <Route
           path="*"

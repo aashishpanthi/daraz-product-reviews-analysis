@@ -11,6 +11,14 @@ function Home() {
       <p style={{ textAlign: "center", marginBottom: "50px" }}>
         This page contains links to all the pages of the project
       </p>
+      <h3 style={{ textAlign: "center", marginBottom: 0 }}>
+        Sentiment analysis
+      </h3>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Link to="/overall-sentiment" style={{ margin: 10 }}>
+          Overall Sentiment Analysis
+        </Link>
+      </div>
       <h3 style={{ textAlign: "center", marginBottom: 0 }}>Word cloud</h3>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Link to="/word-cloud" style={{ margin: 10 }}>
