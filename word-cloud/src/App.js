@@ -7,6 +7,7 @@ import OverallSentiment from "./OverallSentiment";
 import BarSentiAccCategories from "./BarSentiAccCategories";
 import reviews from "./reviews.json";
 import { Link, Route, Routes } from "react-router-dom";
+import ScatterPlot from "./ScatterPlot";
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
           path="/sentiment-across-categories"
           Component={BarSentiAccCategories}
         />
+
+        <Route path="/sentiment-vs-ratings" Component={ScatterPlot} />
 
         <Route
           path="*"

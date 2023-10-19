@@ -76,7 +76,14 @@ const SentimentDistributionChart = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        maxWidth: "1000px",
+        margin: "auto",
+        marginTop: "50px",
+        textAlign: "center",
+      }}
+    >
       <h2>Sentiment Distribution by Category</h2>
       <canvas ref={chartRef}></canvas>
     </div>
