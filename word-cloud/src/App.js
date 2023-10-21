@@ -15,6 +15,10 @@ import ShowTheData from "./ShowTheData";
 function App() {
   return (
     <div className="App">
+      {/* Add a home button */}
+      <Link to="/" style={{ position: "absolute", top: "20px", left: "25px" }}>
+        Home
+      </Link>
       <Routes>
         <Route path="/" Component={Home} />
         <Route
