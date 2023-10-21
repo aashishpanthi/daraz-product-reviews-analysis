@@ -1,9 +1,9 @@
 import puppeteer from "puppeteer";
 import getData from "./getData.js";
 import data from "./convertedData.json" assert { type: "json" };
-import Sentiment from "sentiment";
-import fs from "fs";
-import csv from "csv-parser";
+// import Sentiment from "sentiment";
+// import fs from "fs";
+// import csv from "csv-parser";
 
 const fun = async () => {
   // 1. Create a new browser instance

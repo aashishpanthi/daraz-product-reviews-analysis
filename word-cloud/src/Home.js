@@ -46,6 +46,15 @@ function Home() {
           Ratings by Category
         </Link>
       </div>
+      <h3 style={{ textAlign: "center", marginBottom: 0 }}>Data</h3>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Link to="/average-ratings-by-category" style={{ margin: 10 }}>
+          Average Ratings by Category
+        </Link>
+        <Link to="/no-of-reviews-acc-category" style={{ margin: 10 }}>
+          All Categories (with # of reviews)
+        </Link>
+      </div>
     </div>
   );
 }
