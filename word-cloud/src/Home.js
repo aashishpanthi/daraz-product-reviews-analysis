@@ -51,8 +51,11 @@ function Home() {
         <Link to="/average-ratings-by-category" style={{ margin: 10 }}>
           Average Ratings by Category
         </Link>
-        <Link to="/no-of-reviews-acc-category" style={{ margin: 10 }}>
-          All Categories (with # of reviews)
+        <Link to="/all-about-data" style={{ margin: 10 }}>
+          All About Data
+        </Link>
+        <Link to="/show-the-data" style={{ margin: 10 }}>
+          The Data
         </Link>
       </div>
     </div>

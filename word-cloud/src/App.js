@@ -5,11 +5,12 @@ import RatingsAccCategory from "./RatingsAccCategory";
 import WordCloudChart from "./WordCloud";
 import OverallSentiment from "./OverallSentiment";
 import BarSentiAccCategories from "./BarSentiAccCategories";
-import NoOfRevAccCategory from "./NoOfRevAccCategory";
+import AllAboutData from "./AllAboutData";
 import AverageRatingsPerCategory from "./AverageRatingsPerCategory";
 import reviews from "./reviews.json";
 import { Link, Route, Routes } from "react-router-dom";
 import ScatterPlot from "./ScatterPlot";
+import ShowTheData from "./ShowTheData";
 
 function App() {
   return (
@@ -47,10 +48,9 @@ function App() {
           Component={AverageRatingsPerCategory}
         />
 
-        <Route
-          path="/no-of-reviews-acc-category"
-          Component={NoOfRevAccCategory}
-        />
+        <Route path="/all-about-data" Component={AllAboutData} />
+
+        <Route path="/show-the-data" Component={ShowTheData} />
 
         <Route
           path="*"
