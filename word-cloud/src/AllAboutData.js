@@ -132,6 +132,75 @@ function AllAboutData() {
             })}
           </tbody>
         </table>
+
+        <h2>What is the overall sentiment of the reviews?</h2>
+        <p>
+          The overall sentiment of the reviews is positive. The sentiment of the
+          reviews was analyzed using{" "}
+          <a
+            href="https://www.npmjs.com/package/sentiment"
+            title="Sentiment, a node library"
+          >
+            sentiment
+          </a>{" "}
+          node library. The sentiment of each review was analyzed and the
+          average sentiment of all the reviews was calculated. The average
+          sentiment was used to determine the overall sentiment of the reviews.
+          <ul>
+            <li>
+              <strong>Positive</strong>: The average sentiment is greater than
+              0.
+            </li>
+            <li>
+              <strong>Neutral</strong>: The average sentiment is 0.
+            </li>
+            <li>
+              <strong>Negative</strong>: The average sentiment is less than 0.
+            </li>
+          </ul>
+        </p>
+
+        <h2>How many products didn't have any review?</h2>
+        <p>
+          A total of{" "}
+          {data
+            .filter(
+              (product) =>
+                product.reviews.length === 0 || product.reviews[0] === ""
+            )
+            .length.toLocaleString()}{" "}
+          out of {data.length.toLocaleString()} products didn't have any review.
+          Meaning that{" "}
+          {(
+            (data.filter(
+              (product) =>
+                product.reviews.length === 0 || product.reviews[0] === ""
+            ).length /
+              data.length) *
+            100
+          ).toLocaleString(undefined, {
+            maximumFractionDigits: 2,
+          })}
+          % of the products didn't have any review.
+        </p>
+
+        <h2>Limitations</h2>
+        <p>
+          <ol>
+            <li>
+              The data was scraped on September, 2023. The data might not be
+              accurate for the current date.
+            </li>
+            <li>
+              The sentiment of the products with zero ratings or reviews
+              couldn't be analyzed.
+            </li>
+            <li>
+              Only {data.length.toLocaleString()} products were scraped. The
+              data might not be accurate for generalization.
+            </li>
+          </ol>
+        </p>
       </div>
     </div>
   );
