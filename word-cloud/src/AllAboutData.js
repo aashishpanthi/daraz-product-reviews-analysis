@@ -4,7 +4,13 @@ import data from "./reviews.json";
 function AllAboutData() {
   const totalProducts = data?.length;
   const totalReviews = data?.reduce((acc, curr) => {
-    return acc + curr.reviews.length;
+    const reviews =
+      curr.reviews.length === 0
+        ? 0
+        : curr.reviews[0] === ""
+        ? 0
+        : curr.reviews.length;
+    return acc + reviews;
   }, 0);
   const averageReviews = totalReviews / totalProducts;
 
@@ -24,7 +30,12 @@ function AllAboutData() {
   // get the total number of reviews in each category
   const categoryReviews = data?.reduce((acc, curr) => {
     const category = curr.category;
-    const reviews = curr.reviews.length;
+    const reviews =
+      curr.reviews.length === 0
+        ? 0
+        : curr.reviews[0] === ""
+        ? 0
+        : curr.reviews.length;
     if (acc[category]) {
       acc[category] += reviews;
     } else {
@@ -117,6 +128,8 @@ function AllAboutData() {
             <tr>
               <th>Category</th>
               <th>No. of Products</th>
+              <th>No. of Reviewed Products</th>
+              <th>No. of Non reviewed Products</th>
               <th>No. of Reviews</th>
             </tr>
           </thead>
@@ -126,6 +139,26 @@ function AllAboutData() {
                 <tr key={category}>
                   <td>{category}</td>
                   <td>{categories[category]}</td>
+                  <td>
+                    {
+                      data.filter(
+                        (product) =>
+                          product.category === category &&
+                          product.reviews.length > 0 &&
+                          product.reviews[0] !== ""
+                      ).length
+                    }
+                  </td>
+                  <td>
+                    {
+                      data.filter(
+                        (product) =>
+                          product.category === category &&
+                          (product.reviews.length === 0 ||
+                            product.reviews[0] === "")
+                      ).length
+                    }
+                  </td>
                   <td>{categoryReviews[category]}</td>
                 </tr>
               );
