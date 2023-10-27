@@ -19,7 +19,7 @@ const ScatterPlot = ({}) => {
         data: {
           datasets: [
             {
-              label: "(Raings, Sentiment Score)",
+              label: "(Ratings, Sentiment Score)",
               data: data.map((product, index) => ({
                 x: ratings[index],
                 y: sentimentScores[index],
