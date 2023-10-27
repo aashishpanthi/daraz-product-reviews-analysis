@@ -19,14 +19,15 @@ const ScatterPlot = ({}) => {
         data: {
           datasets: [
             {
-              label: "Reviews",
+              label: "(Raings, Sentiment Score)",
               data: data.map((product, index) => ({
                 x: ratings[index],
                 y: sentimentScores[index],
                 text: product.name,
               })),
-              pointStyle: "circle", // You can change the point style
-              pointRadius: 5, // You can change the point radius
+              pointStyle: "circle",
+              pointRadius: 3,
+              backgroundColor: "orange",
             },
           ],
         },
@@ -72,7 +73,7 @@ const ScatterPlot = ({}) => {
       }}
     >
       <h2>Scatter Plot: Rating vs Sentiment Score</h2>
-      <canvas ref={chartRef} width="400" height="200"></canvas>
+      <canvas ref={chartRef} width="400" height="300"></canvas>
     </div>
   );
 };
